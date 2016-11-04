@@ -1,34 +1,19 @@
 import React from 'react'
-import MatchForm from './MatchForm';
-import ScoreList from './ScoreList';
+import { Link } from 'react-router'
 
-let currentId = 0;
 
-let App = React.createClass({
-  getChildContext() {
-    return { dependency: 'foo' };
-  },
-  getInitialState() {
-      return { scores: [] };
-  },
-  saveScore(score) {
-    score.id = currentId++;
-    this.state.scores.push(score);
-    this.setState({scores: this.state.scores});
-  },
+const App = React.createClass({
   render() {
-    return <div>
-      <h1>Table soccer scores</h1>
-      <MatchForm saveScore={this.saveScore} />
-      {this.state.scores.length ? <ScoreList scores={this.state.scores} /> : undefined}
-    </div>
+    return (
+      <div>
+        <h1>React practice app</h1>
+        <ul>
+          <li><Link to="/about">About</Link></li>
+        </ul>
+        {this.props.children}
+      </div>
+    )
   }
-})
-
-
-App.childContextTypes = {
-  dependency: React.PropTypes.string
-};
-
+});
 
 export default App;
