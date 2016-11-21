@@ -15,7 +15,6 @@ let MatchForm = React.createClass({
   },
   validate() {
       if(!isValid(this.state)) {
-          console.log(this.state);
           this.setState({ validationMessage: 'There should be exactly one winner with 10 scores' })
           return false;
       }
@@ -26,10 +25,10 @@ let MatchForm = React.createClass({
       return { goals1: 0, goals2: 0 };
   },
   onGoals1Changed(e) {
-      this.setState({goals1: e.target.value});
+      this.setState({goals1: e.target.value}, () => this.validate());
   },
   onGoals2Changed(e) {
-      this.setState({goals2: e.target.value});
+      this.setState({goals2: e.target.value}, () => this.validate());
   },
   onSubmit(e) {
       if(!this.validate())
