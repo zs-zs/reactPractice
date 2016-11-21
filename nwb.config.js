@@ -1,5 +1,10 @@
 module.exports = {
-  type: 'react-app'
+	type: 'react-app',
+	webpack: {
+		extra: {
+			devtool: '#inline-source-map'
+		}
+	},
 	karma: {
 		browsers: ['Chrome', 'Firefox', 'IE'],
 		//browsers: ['IE8'],
