@@ -8,7 +8,7 @@
     "clean": "nwb clean-app",
     "start": "nwb serve-react-app",
     "test": "nwb test",
-	"test:jsdom": "node .\\node_modules\\nwb\\node_modules\\mocha\\bin\\_mocha --compilers js:babel-core/register tests/*.js",
+    "test:jsdom": "node .\\node_modules\\nwb\\node_modules\\mocha\\bin\\_mocha --require setupJsDom.js --compilers js:babel-core/register tests/*.js",
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"
   },
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "expect": "^1.20.2",
+    "jsdom": "^9.8.3",
     "karma-firefox-launcher": "^1.0.0",
     "karma-ie-launcher": "^1.0.0",
     "nwb": "0.12.x"
