@@ -8,7 +8,7 @@
     "clean": "nwb clean-app",
     "start": "nwb serve-react-app",
     "test": "nwb test",
-    "test:jsdom": "node .\\node_modules\\nwb\\node_modules\\mocha\\bin\\_mocha --require setupJsDom.js --compilers js:babel-core/register tests/*.js",
+    "test:jsdom": "node .\\node_modules\\nwb\\node_modules\\mocha\\bin\\_mocha --require mochaSetupJsDom.js --compilers js:babel-core/register,css:mochaTestLoaders.js tests/*.js",
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"
   },
