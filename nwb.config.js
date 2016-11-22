@@ -1,6 +1,9 @@
 module.exports = {
 	type: 'react-app',
 	webpack: {
+		compat: {
+			enzyme: true
+		},
 		extra: {
 			devtool: '#inline-source-map'
 		}
