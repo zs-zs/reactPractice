@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import MatchForm from './MatchForm';
 import ScoreList from './ScoreList';
 

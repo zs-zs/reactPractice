@@ -1,5 +1,5 @@
-import './MatchForm.css'
-import React from 'react'
+import './MatchForm.css';
+import React from 'react';
 
 function isValid(state) {
 	const score = { goals1: state.goals1, goals2: state.goals2 };
