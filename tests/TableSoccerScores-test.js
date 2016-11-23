@@ -31,7 +31,7 @@ describe('TableSoccerScores component', () => {
 	
 	it('displays the score list if the scores collection is not empty', () => {
 		const component = shallow(<TableSoccerScores />);
-		component.setState({ scores: [{}] })
+		component.setState({ scores: [{goals1: 9, goals2: 10}] }); // something needs to be in the list
 		expect(component.find(ScoreList).length).toBe(1);
 	});
 
