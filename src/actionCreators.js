@@ -1,13 +1,8 @@
 import * as actionTypes from './actionTypes';
 
-export function createScore(goals1, goals2) {
+export function createScore(score) {
 	return {
 		type: actionTypes.CREATE_SCORE,
-		score: {
-			goals1: goals1,
-			goals2: goals2
-		}
+		score: score
 	};
 }
-
-

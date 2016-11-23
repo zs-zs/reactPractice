@@ -13,18 +13,16 @@ let TableSoccerScores = React.createClass({
 	getChildContext() {
 		return { dependency: 'foo' };
 	},
-	saveScore(score) {
-		this.props.dispatch(actionCreators.createScore(score.goals1, score.goals2));
-	},
 	render() {
+		const { dispatch } = this.props;
+		const boundActionCreators = bindActionCreators(actionCreators, dispatch);
 		return <div>
 			<h1>Table soccer scores</h1>
-			<MatchForm saveScore={this.saveScore} />
+			<MatchForm saveScore={boundActionCreators.createScore} />
 			{this.props.scores.length ? <ScoreList scores={this.props.scores} /> : undefined}
 		</div>
 	}
-})
-
+});
 
 TableSoccerScores.childContextTypes = {
 	dependency: React.PropTypes.string
