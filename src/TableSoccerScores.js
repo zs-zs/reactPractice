@@ -2,25 +2,25 @@ import React from 'react';
 import MatchForm from './MatchForm';
 import ScoreList from './ScoreList';
 
-let currentId = 0;
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from './actionCreators';
 
 let TableSoccerScores = React.createClass({
+	propTypes: {
+		scores: React.PropTypes.array.isRequired
+	},
 	getChildContext() {
 		return { dependency: 'foo' };
 	},
-	getInitialState() {
-		return { scores: [] };
-	},
 	saveScore(score) {
-		score.id = currentId++;
-		this.state.scores.push(score);
-		this.setState({ scores: this.state.scores });
+		this.props.dispatch(actionCreators.createScore(score.goals1, score.goals2));
 	},
 	render() {
 		return <div>
 			<h1>Table soccer scores</h1>
 			<MatchForm saveScore={this.saveScore} />
-			{this.state.scores.length ? <ScoreList scores={this.state.scores} /> : undefined}
+			{this.props.scores.length ? <ScoreList scores={this.props.scores} /> : undefined}
 		</div>
 	}
 })
@@ -30,5 +30,6 @@ TableSoccerScores.childContextTypes = {
 	dependency: React.PropTypes.string
 };
 
+TableSoccerScores = connect(state => ({ scores: state.scores }))(TableSoccerScores);
 
 export default TableSoccerScores;
