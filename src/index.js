@@ -7,7 +7,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { rootReducer } from './reducers';
+import rootReducer from './reducers';
 
 import App from './App';
 import TableSoccerScores from './TableSoccerScores';

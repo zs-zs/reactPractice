@@ -6,3 +6,10 @@ export function createScore(score) {
 		score: score
 	};
 }
+
+export function changeNewScore(newScore) {
+	return {
+		type: actionTypes.NEW_SCORE_CHANGES,
+		newScore: newScore
+	};
+}

@@ -1,1 +1,2 @@
 export const CREATE_SCORE = 'CREATE_SCORE';
+export const NEW_SCORE_CHANGES = 'NEW_SCORE_CHANGES';
