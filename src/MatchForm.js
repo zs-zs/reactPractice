@@ -1,5 +1,7 @@
 import './MatchForm.css';
 import React from 'react';
+import { connect } from 'react-redux';
+import { createScore } from './actionCreators';
 
 function isValid(state) {
 	const score = { goals1: state.goals1, goals2: state.goals2 };
@@ -8,11 +10,6 @@ function isValid(state) {
 }
 
 let MatchForm = React.createClass({
-	getPropTypes() {
-		return {
-			saveScore: React.PropTypes.func
-		}
-	},
 	validate() {
 		if (!isValid(this.state)) {
 			this.setState({ validationMessage: 'There should be exactly one winner with 10 scores' })
@@ -34,12 +31,11 @@ let MatchForm = React.createClass({
 		if (!this.validate())
 			return;
 
-		const newScore = {
+		this.setState({ goals1: 0, goals2: 0 });
+		this.props.createScore({
 			goals1: this.state.goals1,
 			goals2: this.state.goals2
-		};
-		this.setState({ goals1: 0, goals2: 0 });
-		this.props.saveScore(newScore);
+		});
 	},
 	render() {
 		return <div>
@@ -55,5 +51,7 @@ let MatchForm = React.createClass({
 // MatchForm.contextTypes = {
 //   color: React.PropTypes.string
 // };
+
+MatchForm = connect(null, { createScore: createScore })(MatchForm);
 
 export default MatchForm

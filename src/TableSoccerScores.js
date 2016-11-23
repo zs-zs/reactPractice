@@ -3,8 +3,6 @@ import MatchForm from './MatchForm';
 import ScoreList from './ScoreList';
 
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from './actionCreators';
 
 let TableSoccerScores = React.createClass({
 	propTypes: {
@@ -14,11 +12,9 @@ let TableSoccerScores = React.createClass({
 		return { dependency: 'foo' };
 	},
 	render() {
-		const { dispatch } = this.props;
-		const boundActionCreators = bindActionCreators(actionCreators, dispatch);
 		return <div>
 			<h1>Table soccer scores</h1>
-			<MatchForm saveScore={boundActionCreators.createScore} />
+			<MatchForm />
 			{this.props.scores.length ? <ScoreList scores={this.props.scores} /> : undefined}
 		</div>
 	}
