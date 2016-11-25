@@ -8,9 +8,6 @@ let TableSoccerScores = React.createClass({
 	propTypes: {
 		scores: React.PropTypes.array.isRequired
 	},
-	getChildContext() {
-		return { dependency: 'foo' };
-	},
 	render() {
 		return <div>
 			<h1>Table soccer scores</h1>
@@ -19,10 +16,6 @@ let TableSoccerScores = React.createClass({
 		</div>
 	}
 });
-
-TableSoccerScores.childContextTypes = {
-	dependency: React.PropTypes.string
-};
 
 TableSoccerScores = connect(state => ({ scores: state.scores }))(TableSoccerScores);
 

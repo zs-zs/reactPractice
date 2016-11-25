@@ -50,10 +50,6 @@ let MatchForm = React.createClass({
 	}
 })
 
-// MatchForm.contextTypes = {
-//   color: React.PropTypes.string
-// };
-
 MatchForm = connect((state) => ({ newScore: state.newScore }), { createScore, changeNewScore })(MatchForm);
 
 export default MatchForm
